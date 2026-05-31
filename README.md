@@ -6,6 +6,7 @@
 
 [![Python](https://img.shields.io/badge/Python-3.9%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+[![CI](https://github.com/adityapathak2004/project-1/actions/workflows/ci.yml/badge.svg?style=for-the-badge)](https://github.com/adityapathak2004/project-1/actions/workflows/ci.yml)
 [![Jupyter](https://img.shields.io/badge/Notebooks-4-orange?style=for-the-badge&logo=jupyter&logoColor=white)](notebooks/)
 [![Streamlit](https://img.shields.io/badge/Dashboard-Streamlit-red?style=for-the-badge&logo=streamlit&logoColor=white)](app/)
 [![Code Style](https://img.shields.io/badge/Code%20Style-Black-black?style=for-the-badge)](https://github.com/psf/black)
@@ -39,7 +40,7 @@
 - **📈 Time Series** — decomposition, stationarity tests, ARIMA forecasting
 - **📊 Beautiful Vizzes** — publication-ready Matplotlib/Seaborn figures
 - **🖥️ Live Dashboard** — upload CSV → full analysis without writing a line of code
-- **🧪 Tested** — pytest suite covering core utilities
+- **✅ CI Tested** — GitHub Actions runs pytest on Python 3.9, 3.10, 3.11 on every push
 - **📓 4 Notebooks** — end-to-end walkthroughs from raw data to deployed insights
 
 ---
@@ -131,8 +132,8 @@ streamlit run app/dashboard.py
 
 ```
 project-1/
+├── .github/workflows/ci.yml  # GitHub Actions CI
 ├── src/dskit/
-│   ├── __init__.py
 │   ├── eda.py          # Auto-EDA utilities
 │   ├── features.py     # Feature engineering
 │   ├── models.py       # Model comparison framework
@@ -142,14 +143,10 @@ project-1/
 │   ├── 02_feature_engineering.ipynb
 │   ├── 03_ml_model_comparison.ipynb
 │   └── 04_time_series_analysis.ipynb
-├── app/
-│   └── dashboard.py    # Streamlit dashboard
-├── tests/
-│   ├── test_eda.py
-│   └── test_features.py
+├── app/dashboard.py    # Streamlit dashboard
+├── tests/              # pytest suite (22 tests)
 ├── requirements.txt
-├── setup.py
-└── LICENSE
+└── setup.py
 ```
 
 ---
@@ -163,8 +160,8 @@ project-1/
 | Visualization | Matplotlib, Seaborn |
 | Dashboard | Streamlit |
 | Time Series | statsmodels |
-| Testing | pytest |
-| Code Style | Black, isort |
+| Testing | pytest, pytest-cov |
+| CI | GitHub Actions |
 
 ---
 
