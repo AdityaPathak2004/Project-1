@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data & models
+data/
+*.csv
+*.xlsx
+*.parquet
+*.pkl
+*.h5
+models/
+*.joblib
+
+# IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Env vars
+.env
+.env.local
+
+# Testing
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+
+# Streamlit
+.streamlit/
