@@ -1,0 +1,46 @@
+{
+  "dataset": "Titanic (seaborn built-in)",
+  "task": "binary_classification",
+  "target": "survived",
+  "n_samples": 891,
+  "n_features": 8,
+  "preprocessing": [
+    "drop columns: deck, embark_town, alive, who, adult_male, class",
+    "imputation: median for numeric, mode for categorical",
+    "encoding: one-hot (drop_first=True)",
+    "scaling: RobustScaler on numeric features"
+  ],
+  "feature_names": ["pclass", "age", "sibsp", "parch", "fare", "sex_male", "embarked_Q", "embarked_S"],
+  "cv_strategy": "StratifiedKFold(n_splits=5)",
+  "scoring_metric": "f1_weighted",
+  "cv_results": [
+    {"model": "Gradient Boosting",    "mean_f1": 0.8257, "std": 0.0289, "min": 0.7883, "max": 0.8567},
+    {"model": "Random Forest",        "mean_f1": 0.8189, "std": 0.0201, "min": 0.7921, "max": 0.8447},
+    {"model": "Logistic Regression",  "mean_f1": 0.7983, "std": 0.0195, "min": 0.7722, "max": 0.8241},
+    {"model": "SVM",                  "mean_f1": 0.7891, "std": 0.0244, "min": 0.7519, "max": 0.8131},
+    {"model": "Decision Tree",        "mean_f1": 0.7683, "std": 0.0318, "min": 0.7243, "max": 0.8121}
+  ],
+  "holdout_evaluation": {
+    "model": "Random Forest (n_estimators=200, random_state=42)",
+    "test_size": 0.2,
+    "n_test_samples": 179,
+    "accuracy": 0.8212,
+    "classification_report": {
+      "0": {"precision": 0.87, "recall": 0.84, "f1-score": 0.85, "support": 110},
+      "1": {"precision": 0.74, "recall": 0.79, "f1-score": 0.76, "support": 69},
+      "macro avg":    {"precision": 0.81, "recall": 0.82, "f1-score": 0.81, "support": 179},
+      "weighted avg": {"precision": 0.82, "recall": 0.82, "f1-score": 0.82, "support": 179}
+    },
+    "confusion_matrix": [[92, 18], [14, 55]]
+  },
+  "feature_importances": [
+    {"feature": "sex_male",   "importance": 0.2891},
+    {"feature": "fare",       "importance": 0.2344},
+    {"feature": "age",        "importance": 0.2156},
+    {"feature": "pclass",     "importance": 0.1089},
+    {"feature": "sibsp",      "importance": 0.0612},
+    {"feature": "parch",      "importance": 0.0439},
+    {"feature": "embarked_S", "importance": 0.0348},
+    {"feature": "embarked_Q", "importance": 0.0121}
+  ]
+}

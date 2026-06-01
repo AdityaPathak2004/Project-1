@@ -45,7 +45,7 @@ def compare_models(
     scoring: Optional[str] = None,
 ) -> pd.DataFrame:
     """Train and compare multiple models using cross-validation. Returns a ranked DataFrame."""
-    models = CLASSIFIERS if task == "classification" else REGRESSORS
+    models = CLASSIFIERS if task == "classification" else REGRESSOR
     if scoring is None:
         scoring = "f1_weighted" if task == "classification" else "neg_root_mean_squared_error"
     cv_strategy = StratifiedKFold(n_splits=cv) if task == "classification" else KFold(n_splits=cv)
